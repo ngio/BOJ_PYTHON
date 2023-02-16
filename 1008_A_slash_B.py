@@ -17,3 +17,19 @@ print(int(a)/int(b))
 
 A,B = map(int, input().split() )
 print(A/B)
+
+#----------------------------------------------
+
+class Error_001(Exception):
+    pass
+
+def Example_01():
+    A, B = map(int, input().split())
+    if not 0 < A < 10 or not 0 < B < 10:
+        raise Error_001()
+    print(A/B)
+
+try:
+    Example_01()
+except Error_001:
+    print(" 조건에 맞는 수를 입력하세요. ")
