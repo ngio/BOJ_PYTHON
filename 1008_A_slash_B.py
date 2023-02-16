@@ -12,3 +12,8 @@
 
 a,b = input().split()
 print(int(a)/int(b))
+
+#----------------------------------------------
+
+A,B = map(int, input().split() )
+print(A/B)
