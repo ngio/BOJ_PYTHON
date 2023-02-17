@@ -11,3 +11,11 @@
     출력
         각 테스트 케이스에 대해 마지막 데이터가 처리되는 컴퓨터의 번호를 출력한다.
 """
+
+
+t = int(input())
+
+for _ in range(t):
+    a, b= map(int, input().split())
+    print((a ** b)%10)
+    
