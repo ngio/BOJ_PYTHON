@@ -19,3 +19,21 @@ for _ in range(t):
     a, b= map(int, input().split())
     print((a ** b)%10)
     
+
+    
+    
+""" OUTPUT
+>> 1009_distributed_processing.py
+5
+1 6
+1
+3 7
+7
+6 2
+6
+7 100
+1
+9 635
+9
+
+"""
