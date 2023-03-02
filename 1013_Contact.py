@@ -40,4 +40,26 @@
         NO
         YES
         
+        
+>> BOJ\1013_Contact.py
+3
+10010111
+NO
+011000100110001
+NO
+0110001011001
+YES
+          
 """
+
+import re
+import sys
+input  = sys.stdin.readline
+
+p = re.compile('(100+1+|01)+')
+for i in range(int(input())):
+   s = input().strip()
+   if p.fullmatch(s):
+       print("YES")
+   else:
+       print("NO")
