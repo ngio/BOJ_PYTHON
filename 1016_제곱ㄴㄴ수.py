@@ -27,3 +27,23 @@
     예제 출력 3 
     608
 """
+
+import math
+
+min, max = map(int, input().split())
+ 
+NN = [1] * (max - min + 1) 
+
+tmp_01 = []
+
+for i in range(2, int(math.sqrt(max)) + 1):
+    tmp_01.append(i ** 2)
+
+
+for i in tmp_01:
+    j = math.ceil(min / i)
+    while i * j <= max:
+        NN[i * j - min] = 0
+        j += 1
+
+print(sum(NN))
