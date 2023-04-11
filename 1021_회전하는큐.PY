@@ -14,5 +14,36 @@
     입력
     첫째 줄에 큐의 크기 N과 뽑아내려고 하는 수의 개수 M이 주어진다. N은 50보다 작거나 같은 자연수이고, M은 N보다 작거나 같은 자연수이다. 둘째 줄에는 지민이가 뽑아내려고 하는 수의 위치가 순서대로 주어진다. 위치는 1보다 크거나 같고, N보다 작거나 같은 자연수이다.
 """
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+targets = list(map(int, sys.stdin.readline().split(' ')))
+queue = [i for i in range(1, N+1)]
+
+ans = 0
+for target in targets:
+    plus_index = queue.index(target) # 앞에꺼를 뒤로 넘기는 연산 수
+    minus_index = len(queue) - plus_index # 뒤에꺼를 앞으로 넘기는 연산 수
+    steps = min(plus_index, minus_index) # 둘 중 최솟값
+
+    # plus는 2번 연산
+    # minus는 3번 연산
+    if steps == plus_index: sign = 'plus' 
+    else: sign = 'minus'
+
+    if sign == 'plus':
+        for _ in range(steps):
+            temp = queue.pop(0)
+            queue.append(temp)
+    else:
+        for _ in range(steps):
+            temp = queue.pop(-1)
+            queue.insert(0, temp)
+    
+    ans += steps
+    queue.pop(0)
+
+print(ans)
 
 
+# 참고  : https://www.acmicpc.net/problem/1021
